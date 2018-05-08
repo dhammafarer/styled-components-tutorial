@@ -1,7 +1,11 @@
 import React from 'react';
+import Img from 'gatsby-image';
 
 export default ({ data }) => (
-  <p>{data.productsCsv.name}</p>
+  <div>
+    <p>{data.productsCsv.name}</p>
+    <Img sizes={data.productsCsv.img.childImageSharp.sizes}/>
+  </div>
 );
 
 export const query = graphql`
@@ -9,6 +13,13 @@ export const query = graphql`
     productsCsv(fields: { slug: {eq: $slug} }) {
       name
       price
+      img {
+        childImageSharp {
+          sizes(maxWidth: 900) {
+            ...GatsbyImageSharpSizes
+          }
+        }
+      }
     }
   }
 `;
