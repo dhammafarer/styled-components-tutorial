@@ -32,9 +32,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       result.data.allProductsCsv.edges.forEach(({ node }) => {
         createPage({
           path: '/products/' + node.fields.slug,
-          component: path.resolve(`./src/templates/product.js`),
+          component: path.resolve(`./src/templates/product.tsx`),
           context: {
-            // Data passed to context is available in page queries as GraphQL variables.
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
             slug: node.fields.slug,
           },
         })
