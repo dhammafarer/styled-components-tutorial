@@ -1,13 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 
-class Template extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      lang: ''
-    };
-    this.setLang = this.setLang.bind(this);
-  }
+interface Props {
+  children: () => any
+}
+
+class Template extends React.Component<Props, {}> {
+  state = {lang: ''};
+
   componentDidMount () {
     const lang = window.localStorage.getItem('lang');
     if (lang !== null) {
@@ -15,7 +14,7 @@ class Template extends React.Component {
     }
   }
 
-  setLang(lang) {
+  setLang(lang: string) {
     window.localStorage.setItem('lang', lang);
     this.setState({lang});
   }
@@ -32,6 +31,6 @@ class Template extends React.Component {
       </div>
     )
   }
-};
+}
 
 export default Template;
