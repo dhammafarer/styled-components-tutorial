@@ -14,6 +14,7 @@
     "gatsby-plugin-sharp": "^1.6.44",
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-plugin-typescript": "^1.4.20",
+    "gatsby-plugin-typography": "^1.7.18",
     "gatsby-source-filesystem": "^1.5.35",
     "gatsby-transformer-csv": "^1.3.11",
     "gatsby-transformer-sharp": "^1.6.24",
