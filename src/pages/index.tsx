@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 const theme = {
@@ -44,7 +44,13 @@ const Excerpt = styled.p`
   color: ${props => props.theme.main}
 `
 
-const User = props => (
+interface UserProps {
+  avatar: string
+  username: string
+  excerpt: string
+}
+
+const User: React.SFC<UserProps> = props => (
   <UserWrapper>
     <Avatar src={props.avatar} alt="" />
     <Description>
