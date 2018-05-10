@@ -1,21 +1,23 @@
 import * as React from 'react';
+import * as browserLocale from 'browser-locale';
+import { getLocale, saveLocale } from '../utils/helpers';
+
+const initialState = {lang: ''};
+type State = typeof initialState;
 
 interface Props {
   children: () => any
 }
 
-class Template extends React.Component<Props, {}> {
-  state = {lang: ''};
+class Template extends React.Component<Props, State> {
+  state = initialState;
 
   componentDidMount () {
-    const lang = window.localStorage.getItem('lang');
-    if (lang !== null) {
-      this.setState({lang});
-    }
+    this.setState({lang: getLocale()});
   }
 
-  setLang(lang: string) {
-    window.localStorage.setItem('lang', lang);
+  private setLang = (lang: string) => {
+    saveLocale(lang);
     this.setState({lang});
   }
 
@@ -26,7 +28,7 @@ class Template extends React.Component<Props, {}> {
       <div>
         <p>lang: {this.state.lang}</p>
         <button onClick={() => this.setLang('en')}>en</button>
-        <button onClick={() => this.setLang('cn')}>cn</button>
+        <button onClick={() => this.setLang('zh')}>cn</button>
         {children()}
       </div>
     )
