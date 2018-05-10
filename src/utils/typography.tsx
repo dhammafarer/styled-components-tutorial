@@ -1,3 +1,5 @@
-import Typography from 'typography';
+import * as Typography from 'typography';
+import lawtonTheme from 'typography-theme-lawton';
+const typography = new Typography(lawtonTheme);
 
-const typography = new Typography({ baseFont: '20px' });
+export default typography;
