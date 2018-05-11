@@ -5,6 +5,10 @@ import fontawesome from '@fortawesome/fontawesome';
 import * as FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import * as faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
 
+import bootstrapTheme from 'typography-theme-bootstrap';
+import * as Typography from 'typography';
+const typography = new Typography(bootstrapTheme);
+
 fontawesome.library.add(faCoffee);
 
 const initialState = {lang: ''};
@@ -21,6 +25,11 @@ class Template extends React.Component<Props, State> {
     this.setState({lang: getLocale()});
   }
 
+  private toggleTheme = () => {
+    console.log(typography);
+    typography.injectStyles();
+  }
+
   private setLang = (lang: string) => {
     saveLocale(lang);
     this.setState({lang});
@@ -33,6 +42,7 @@ class Template extends React.Component<Props, State> {
       <div>
         <p>lang: {this.state.lang}</p>
         <FontAwesomeIcon icon="coffee"/>
+        <button onClick={() => this.toggleTheme()}>Bootstrap Theme</button>
         <button onClick={() => this.setLang('en')}>en</button>
         <button onClick={() => this.setLang('zh')}>cn</button>
         {children()}
