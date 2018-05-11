@@ -1,12 +1,17 @@
 import * as React from 'react';
 import * as browserLocale from 'browser-locale';
 import { getLocale, saveLocale } from '../utils/helpers';
+import fontawesome from '@fortawesome/fontawesome';
+import * as FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import * as faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
+
+fontawesome.library.add(faCoffee);
 
 const initialState = {lang: ''};
 type State = typeof initialState;
 
 interface Props {
-  children: () => any
+ children: () => any
 }
 
 class Template extends React.Component<Props, State> {
@@ -27,6 +32,7 @@ class Template extends React.Component<Props, State> {
     return (
       <div>
         <p>lang: {this.state.lang}</p>
+        <FontAwesomeIcon icon="coffee"/>
         <button onClick={() => this.setLang('en')}>en</button>
         <button onClick={() => this.setLang('zh')}>cn</button>
         {children()}

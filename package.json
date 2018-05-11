@@ -8,6 +8,9 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/react-fontawesome": "0.0.19",
     "browser-locale": "^1.0.3",
     "gatsby": "^1.9.250",
     "gatsby-image": "^1.0.51",
